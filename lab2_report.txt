@@ -1,0 +1,63 @@
+#==============================================================================#
+#                             CS 115 Lab 2 Report                              #
+#==============================================================================#
++------------------------------------------------------------------------------+
+| Fill in your name and the Stevens Honor Code pledge on the following lines.  |
+| Failure to fill this in will result in deducted marks.                       |
++------------------------------------------------------------------------------+
+Name: Zhaochen Weng
+
+Pledge: "I pledge my honor that I have abided by the Stevens Honor System."
+
++------------------------------------------------------------------------------+
+| If you have discussed this assignment with other students in the class, list |
+| them below (write "None" if you worked alone). Additionally, list any        |
+| additional resources you consulted.                                          |
++------------------------------------------------------------------------------+
+Collaborators: None
+
+Sources: None
+
++------------------------------------------------------------------------------+
+| Task 1: Describe your testing strategy. How did you group possible inputs?   |
+| What are the edge cases?                                                     |
++------------------------------------------------------------------------------+
+I grouped by month length (31, 30, 28/29 days).  
+Tested valid dates, invalid days (too high, 0, negative), invalid months (<1 or >12).  
+Edge cases: Feb 29, Feb 30, Apr 31, Dec 31.
+
++------------------------------------------------------------------------------+
+| Task 1: Which of the provided 5 implementations are correct? For the         |
+| incorrect ones, when do they give the wrong answer?                          |
++------------------------------------------------------------------------------+
+impl_1: wrong, fails Feb and 30-day months.  
+impl_2: wrong, regex misses cases.  
+impl_3: wrong, returns incorrect for many months.  
+impl_4: always False.  
+impl_5: wrong, logic order errors.  
+None are fully correct.
+
++------------------------------------------------------------------------------+
+| Task 2: Describing *every step you took* to find the mistake in              |
+| vali_date_buggy_but_fixable.                                                 |
++------------------------------------------------------------------------------+
+1. Ran tests, saw Apr 15 returned False.  
+2. Checked logic by month groups.  
+3. Found the 30-day months branch had wrong comparison.  
+4. Fixed and retested, all passed.
+
++------------------------------------------------------------------------------+
+| Task 2: Where and what was the mistake in vali_date_buggy_but_fixable?       |
++------------------------------------------------------------------------------+
+Used day <= 30 instead of `day >= 30` for months with 30 days.
+
++------------------------------------------------------------------------------+
+| Did you encounter any problems while doing this assignment? If so, how did   |
+| you resolve them?                                                            |
++------------------------------------------------------------------------------+
+No
+
++------------------------------------------------------------------------------+
+| Do you have any additional comments about this assignment?                   |
++------------------------------------------------------------------------------+
+Good practice with testing and debugging.
